@@ -67,12 +67,6 @@ function Airplane(name) {
   josh.poop();
   console.log(josh.stomach);
   console.log(josh.toString())
- 
- 
-
-  
-  
-  
   
   /*
     TASK 2
