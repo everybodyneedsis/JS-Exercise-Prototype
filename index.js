@@ -112,11 +112,22 @@ function Airplane(name) {
       - Besides the methods on Person.prototype, babies have the ability to `.play()`:
           + Should return a string "Playing with x", x being the favorite toy.
   */
- function Baby() {
-   
+ function Baby(name, age, favToy) {
+   Person.call(this, name, age);
+   this.favToy = favToy;  
   }
  
+  Baby.prototype = Object.create(Person.prototype);
+
+  Baby.prototype.play = function(){
+    return `Playing with ${this.favToy}, ${this.favToy} being the Favorite Toy`;
+  }
   
+  const jacob = new Baby('jacob', '8months');
+
+  console.log(jacob.play('bong'));
+
+
   /* 
     TASK 4
     In your own words explain the four principles for the "this" keyword below:
@@ -126,7 +137,7 @@ function Airplane(name) {
     2. Implicit binding which will imply that to the left of your dot is what 'this refers to
 
     3. Explicit binding will explicitly tell you what to bind 'this' too
-    
+
     4. Constructor will refer 'this' to the specific instance of the object that is created and returned by contructor
   */
   
