@@ -91,11 +91,17 @@ function Airplane(name) {
 
   Car.prototype.fill = function(gallons){
     this.tank = gallons + this.tank;
-  }
+  };
+
+  Car.prototype.drive = function(distance){
+    this.odometer = this.odometer + distance;
+    this.tank = this.tank - this.milesPerGallon *0.1;
+  };
   
   const pontiac = new Car('pontiac', 25);
 
   pontiac.fill(20);
+  pontiac.drive(40);
 
   console.log(pontiac.tank);
   
@@ -114,10 +120,14 @@ function Airplane(name) {
   /* 
     TASK 4
     In your own words explain the four principles for the "this" keyword below:
-    1. 
-    2. 
-    3. 
-    4. 
+
+    1. Window binding which will return the window object if we dont give 'this' context
+
+    2. Implicit binding which will imply that to the left of your dot is what 'this refers to
+
+    3. Explicit binding will explicitly tell you what to bind 'this' too
+    
+    4. Constructor will refer 'this' to the specific instance of the object that is created and returned by contructor
   */
   
   
